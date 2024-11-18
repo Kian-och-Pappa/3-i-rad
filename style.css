@@ -1,36 +1,29 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Gör att sidan täcker hela höjden på fönstret */
-    display: flex; /* Gör att vi kan använda flexbox för att centrera */
-    justify-content: center; /* Centrerar horisontellt */
-    align-items: center; /* Centrerar vertikalt */
-    background-color: #f4f4f4; /* Ljus bakgrundsfärg */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    text-align: center;
+    flex-direction: column; /* Gör att innehållet staplas vertikalt */
+}
+
+#container {
+    text-align: center; /* Centrera text och spelbräde */
+}
+
+h1 {
+    margin-bottom: 20px; /* Lägger till avstånd mellan rubriken och spelbrädet */
+    font-size: 2em; /* Storlek på rubriken */
+    color: #333; /* Färg på texten */
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(3, 100px); /* Tre kolumner, 100px breda */
-    grid-template-rows: repeat(3, 100px); /* Tre rader, 100px höga */
-    gap: 5px; /* Mellanrum mellan rutorna */
-}
-
-.cell {
-    width: 100px;
-    height: 100px;
-    background-color: #ffffff; /* Vit bakgrund */
-    border: 2px solid #000000; /* Svart kant */
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Text centreras i rutan */
-    cursor: pointer; /* Pekaren ändras till en hand */
-    transition: background-color 0.3s ease; /* Snygg övergång för färgändring */
-}
-
-.cell:hover {
-    background-color: #f0f0f0; /* Ändra färg när musen hovrar */
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
 }

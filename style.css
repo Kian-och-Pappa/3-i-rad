@@ -8,7 +8,7 @@ body {
     align-items: center;
     background-color: #f4f4f4;
     text-align: center;
-    flex-direction: column; /* Gör att innehållet staplas vertikalt */
+    flex-direction: column; /* Gör att rubriken hamnar ovanför spelbrädet */
 }
 
 #container {
@@ -23,7 +23,25 @@ h1 {
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
+    grid-template-columns: repeat(3, 100px); /* Tre kolumner, 100px vardera */
+    grid-template-rows: repeat(3, 100px); /* Tre rader, 100px vardera */
+    gap: 5px; /* Mellanrum mellan rutorna */
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff; /* Vit bakgrund */
+    border: 2px solid #000000; /* Svart kant */
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Text centreras i rutan */
+    cursor: pointer; /* Pekaren ändras till en hand */
+    transition: background-color 0.3s ease; /* Snygg övergång för färgändring */
+}
+
+.cell:hover {
+    background-color: #f0f0f0; /* Ändra färg när musen hovrar */
 }

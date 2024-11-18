@@ -1,5 +1,4 @@
 const cells = document.querySelectorAll('.cell');
-const resetButton = document.getElementById('reset-button');
 let currentPlayer = 'X';
 const board = Array(9).fill(null);
 
@@ -20,15 +19,15 @@ function checkWinner() {
 }
 
 function handleClick(event) {
-    const index = event.target.dataset.index;
+    const index = Array.from(cells).indexOf(event.target);
     if (board[index] || checkWinner()) return;
 
     board[index] = currentPlayer;
     event.target.textContent = currentPlayer;
-    const winner = checkWinner();
 
+    const winner = checkWinner();
     if (winner) {
-        alert(winner === 'Draw' ? 'It\'s a Draw!' : `${winner} Wins!`);
+        alert(winner === 'Draw' ? 'It's a Draw!' : `${winner} Wins!`);
     }
 
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
@@ -41,4 +40,3 @@ function resetGame() {
 }
 
 cells.forEach(cell => cell.addEventListener('click', handleClick));
-resetButton.addEventListener('click', resetGame);

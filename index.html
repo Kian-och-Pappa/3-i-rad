@@ -10,17 +10,23 @@
 <body>
     <div id="container">
         <h1>Välkommen till Kians spel!</h1>
+        <div id="player-section">
+            <p id="current-player">Player 1, välj din symbol:</p>
+            <input type="text" id="player-symbol" maxlength="1" placeholder="Välj bokstav">
+            <button id="submit-symbol">Bekräfta</button>
+        </div>
         <div id="game-board">
-    <div class="cell" data-index="0"></div>
-    <div class="cell" data-index="1"></div>
-    <div class="cell" data-index="2"></div>
-    <div class="cell" data-index="3"></div>
-    <div class="cell" data-index="4"></div>
-    <div class="cell" data-index="5"></div>
-    <div class="cell" data-index="6"></div>
-    <div class="cell" data-index="7"></div>
-    <div class="cell" data-index="8"></div>
-</div>
-<button id="reset-button">Spela igen</button> <!-- Lägg till knappen -->
-</div>
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <button id="reset-button">Spela igen</button>
+    </div>
 </body>
+</html>

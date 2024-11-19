@@ -19,18 +19,21 @@ function setPlayerSymbol() {
     }
 
     if (currentPlayer === 'Player 1') {
-        player1Symbol = symbol;
-        currentPlayer = 'Player 2';
-        currentPlayerText.textContent = 'Player 2, välj din symbol:';
+        player1Symbol = symbol; // Sätt Player 1:s symbol
+        currentPlayer = 'Player 2'; // Växla till Player 2
+        currentPlayerText.textContent = 'Player 2, välj din symbol:'; // Uppdatera texten
         document.body.style.backgroundColor = 'blue'; // Ändra bakgrundsfärg
     } else {
-        player2Symbol = symbol;
-        currentPlayerText.textContent = 'Spelet börjar!';
-        playerSection.style.display = 'none'; // Dölj input efter symbolval
+        player2Symbol = symbol; // Sätt Player 2:s symbol
+        currentPlayer = 'Player 1'; // Återgå till Player 1 för att starta spelet
+        currentPlayerText.textContent = 'Player 1, din tur!'; // Visar att Player 1 börjar
+        document.body.style.backgroundColor = 'limegreen'; // Ändra tillbaka bakgrundsfärgen
+        playerSection.style.display = 'none'; // Dölj inputsektionen
     }
 
     playerSymbolInput.value = ''; // Rensa inputfältet
 }
+
 
 // Funktion för att kontrollera vinnare
 function checkWinner() {

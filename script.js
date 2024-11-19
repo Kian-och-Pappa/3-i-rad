@@ -72,15 +72,16 @@ function handleClick(event) {
 
 // Funktion för att återställa spelet
 function resetGame() {
-    board.fill(null);
-    cells.forEach(cell => (cell.textContent = ''));
-    currentPlayer = 'Player 1';
-    player1Symbol = 'X';
+    board.fill(null); // Rensa brädan
+    cells.forEach(cell => (cell.textContent = '')); // Töm cellerna
+    currentPlayer = 'Player 1'; // Återställ till Player 1
+    player1Symbol = 'X'; // Återställ standardvärden
     player2Symbol = 'O';
-    playerSection.style.display = 'block';
-    currentPlayerText.textContent = 'Player 1, välj din symbol:';
-    document.body.style.backgroundColor = 'limegreen';
+    playerSection.style.display = 'block'; // Visa inputfält för symboler
+    currentPlayerText.textContent = 'Player 1, välj din symbol:'; // Starttext
+    document.body.style.backgroundColor = 'limegreen'; // Grön bakgrund
 }
+
 
 // Lägg till event listeners
 cells.forEach(cell => cell.addEventListener('click', handleClick));

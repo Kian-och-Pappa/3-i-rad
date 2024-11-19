@@ -1,47 +1,58 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: limegreen; /* Bakgrundsfärg för Player 1 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4;
-    text-align: center;
-    flex-direction: column; /* Gör att rubriken hamnar ovanför spelbrädet */
 }
 
 #container {
-    text-align: center; /* Centrera text och spelbräde */
+    text-align: center;
 }
 
-h1 {
-    margin-bottom: 20px; /* Lägger till avstånd mellan rubriken och spelbrädet */
-    font-size: 2em; /* Storlek på rubriken */
-    color: #333; /* Färg på texten */
+#player-section {
+    margin-bottom: 20px;
+}
+
+#player-symbol {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 16px;
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(3, 100px); /* Tre kolumner, 100px vardera */
-    grid-template-rows: repeat(3, 100px); /* Tre rader, 100px vardera */
-    gap: 5px; /* Mellanrum mellan rutorna */
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .cell {
     width: 100px;
     height: 100px;
-    background-color: #ffffff; /* Vit bakgrund */
-    border: 2px solid #000000; /* Svart kant */
+    background-color: white;
     font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Text centreras i rutan */
-    cursor: pointer; /* Pekaren ändras till en hand */
-    transition: background-color 0.3s ease; /* Snygg övergång för färgändring */
+    text-align: center;
+    line-height: 100px;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
-.cell:hover {
-    background-color: #f0f0f0; /* Ändra färg när musen hovrar */
+#reset-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#reset-button:hover {
+    background-color: #0056b3;
 }

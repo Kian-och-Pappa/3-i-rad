@@ -1,7 +1,36 @@
 const cells = document.querySelectorAll('.cell');
-const resetButton = document.getElementById('reset-button'); // Hämta knappen
-let currentPlayer = 'X';
-const board = Array(9).fill(null);
+const resetButton = document.getElementById('reset-button');
+const playerSection = document.getElementById('player-section');
+const currentPlayerText = document.getElementById('current-player');
+const playerSymbolInput = document.getElementById('player-symbol');
+const submitSymbolButton = document.getElementById('submit-symbol');
+
+let player1Symbol = 'X';
+let player2Symbol = 'O';
+let currentPlayer = 'Player 1'; // Börjar med Player 1
+let board = Array(9).fill(null);
+
+// Funktion för att hantera symbolval
+function setPlayerSymbol() {
+    const symbol = playerSymbolInput.value.trim();
+    if (symbol === '' || ['å', 'ä', 'ö'].includes(symbol.toLowerCase())) {
+        alert('Vänligen välj en bokstav (inte å, ä, ö).');
+        return;
+    }
+
+    if (currentPlayer === 'Player 1') {
+        player1Symbol = symbol;
+        currentPlayer = 'Player 2';
+        currentPlayerText.textContent = 'Player 2, välj din symbol:';
+        document.body.style.backgroundColor = 'blue'; // Ändra bakgrundsfärg
+    } else {
+        player2Symbol = symbol;
+        currentPlayerText.textContent = 'Spelet börjar!';
+        playerSection.style.display = 'none'; // Dölj input efter symbolval
+    }
+
+    playerSymbolInput.value = ''; // Rensa inputfältet
+}
 
 // Funktion för att kontrollera vinnare
 function checkWinner() {
@@ -25,8 +54,9 @@ function handleClick(event) {
     const index = event.target.dataset.index;
     if (board[index] || checkWinner()) return;
 
-    board[index] = currentPlayer;
-    event.target.textContent = currentPlayer;
+    const symbol = currentPlayer === 'Player 1' ? player1Symbol : player2Symbol;
+    board[index] = symbol;
+    event.target.textContent = symbol;
 
     const winner = checkWinner();
     if (winner) {
@@ -34,16 +64,22 @@ function handleClick(event) {
         return;
     }
 
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    currentPlayer = currentPlayer === 'Player 1' ? 'Player 2' : 'Player 1';
 }
 
 // Funktion för att återställa spelet
 function resetGame() {
-    board.fill(null); // Töm spelbrädet
-    cells.forEach(cell => (cell.textContent = '')); // Rensa rutorna
-    currentPlayer = 'X'; // Starta om med spelare "X"
+    board.fill(null);
+    cells.forEach(cell => (cell.textContent = ''));
+    currentPlayer = 'Player 1';
+    player1Symbol = 'X';
+    player2Symbol = 'O';
+    playerSection.style.display = 'block';
+    currentPlayerText.textContent = 'Player 1, välj din symbol:';
+    document.body.style.backgroundColor = 'limegreen';
 }
 
 // Lägg till event listeners
 cells.forEach(cell => cell.addEventListener('click', handleClick));
-resetButton.addEventListener('click', resetGame); // Koppla "Spela igen"-knappen
+resetButton.addEventListener('click', resetGame);
+submitSymbolButton.addEventListener('click', setPlayerSymbol);

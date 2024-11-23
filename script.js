@@ -46,11 +46,18 @@ function checkWinner() {
     for (const combination of winningCombinations) {
         const [a, b, c] = combination;
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-            return board[a];
+            // Lägg till konfetti när någon vinner
+            confetti({
+                particleCount: 100, // Antal partiklar
+                spread: 70,         // Spridning av konfettin
+                origin: { y: 0.6 }, // Ursprung för konfettin
+            });
+            return board[a]; // Returnera vinnaren
         }
     }
     return board.includes(null) ? null : 'Draw';
 }
+
 
 // Funktion för att hantera klick på en cell
 function handleClick(event) {
